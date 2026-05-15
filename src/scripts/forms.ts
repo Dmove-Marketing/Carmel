@@ -48,6 +48,37 @@ export function initForms() {
       const hp = form.querySelector<HTMLInputElement>('[name="website"]');
       if (hp && hp.value) return;
 
+      // Validação de campos obrigatórios
+      let firstInvalid: HTMLElement | null = null;
+      let isValid = true;
+
+      form.querySelectorAll<HTMLElement>('[required]').forEach((field) => {
+        const isEmpty =
+          !(field as HTMLInputElement).value ||
+          (field.tagName === 'SELECT' && (field as HTMLSelectElement).value === '');
+
+        if (isEmpty) {
+          isValid = false;
+          (field as HTMLElement).style.borderColor = '#ef4444';
+          (field as HTMLElement).style.outline = '2px solid #ef4444';
+          if (!firstInvalid) firstInvalid = field;
+          const clearError = () => {
+            (field as HTMLElement).style.removeProperty('border-color');
+            (field as HTMLElement).style.removeProperty('outline');
+            field.removeEventListener('input', clearError);
+            field.removeEventListener('change', clearError);
+          };
+          field.addEventListener('input', clearError);
+          field.addEventListener('change', clearError);
+        }
+      });
+
+      if (!isValid) {
+        firstInvalid!.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        (firstInvalid as HTMLElement).focus();
+        return;
+      }
+
       const submitBtn  = form.querySelector<HTMLButtonElement>('.form-submit, [type="submit"]');
       const btnText    = submitBtn?.querySelector<HTMLElement>('.btn-text');
       const btnLoading = submitBtn?.querySelector<HTMLElement>('.btn-loading');
@@ -90,11 +121,20 @@ export function initForms() {
 
       const trackingParamKeys = [
         'utm_source', 'utm_medium', 'utm_campaign', 'utm_term',
-        'utm_content', 'utm_id', 'gclid', 'fbclid', 'ttclid', 'msclkid', 'sck',
+        'utm_content', 'utm_id', 'gclid', 'gbraid', 'wbraid',
+        'fbclid', 'ttclid', 'msclkid', 'sck',
+        'fbc', 'fbp', 'external_id', 'event_id',
       ];
       const qs = new URLSearchParams();
       trackingParamKeys.forEach(k => { if (tracking[k]) qs.set(k, tracking[k]); });
       const fonte = qs.toString() ? `${fonteBase}?${qs.toString()}` : fonteBase;
+
+      // Campos Meta CAPI — enviados também como campos flat para uso direto no n8n
+      const metaCapi: Record<string, string> = {};
+      if (tracking['fbc'])         metaCapi['fbc']         = tracking['fbc'];
+      if (tracking['fbp'])         metaCapi['fbp']         = tracking['fbp'];
+      if (tracking['external_id']) metaCapi['external_id'] = tracking['external_id'];
+      if (tracking['event_id'])    metaCapi['event_id']    = tracking['event_id'];
 
       const payload: Record<string, string> = {
         ...capitalizedFields,
@@ -107,6 +147,7 @@ export function initForms() {
         'Desenvolvido por': 'Dmove',
         form_id: formId,
         form_name: formId,
+        ...metaCapi,
       };
 
       try {
