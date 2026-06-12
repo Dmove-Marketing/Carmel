@@ -16,3 +16,7 @@ npm-debug.log*
 .vscode/
 .claude/
 .idea/
+
+# VRT Output
+scripts/vrt-output/
+
