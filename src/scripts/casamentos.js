@@ -3,6 +3,10 @@
    Clean-Room JS
    ========================================================================== */
 
+import flatpickr from 'flatpickr';
+import 'flatpickr/dist/flatpickr.css';
+window.flatpickr = flatpickr;
+
 // --- 1. MÁSCARA E VALIDAÇÃO DO TELEFONE ---
 (function() {
   function aplicarMascaraTelefone(valor) {
@@ -49,7 +53,7 @@
   }
 
   function inicializarValidacaoTelefone() {
-    const camposTelefone = document.querySelectorAll('input[name="form_fields[telefone]"]');
+    const camposTelefone = document.querySelectorAll('input[name="telefone"]');
     
     camposTelefone.forEach(function(campo) {
       if (campo.dataset.maskAttached) return;
@@ -77,20 +81,13 @@
   }
 
   document.addEventListener('DOMContentLoaded', inicializarValidacaoTelefone);
-  // Verificar dinamicamente caso o form seja re-injetado
   setInterval(inicializarValidacaoTelefone, 1000);
 })();
 
 // --- 2. INICIALIZAÇÃO DO FLATPICKR (CALENDÁRIO) ---
 function inicializarCalendario() {
-  const camposDeData = document.querySelectorAll('input[name="form_fields[data]"]');
+  const camposDeData = document.querySelectorAll('input[name="data"]');
   if (camposDeData.length === 0) return;
-
-  if (typeof flatpickr === 'undefined') {
-    // Se flatpickr ainda não carregou, aguarda um instante
-    setTimeout(inicializarCalendario, 200);
-    return;
-  }
 
   const portugueseLocale = {
     weekdays: { 
@@ -119,7 +116,6 @@ function inicializarCalendario() {
 
 window.addEventListener('load', inicializarCalendario);
 
-// MutationObserver para garantir inicialização se o formulário for modificado
 const observer = new MutationObserver(function() {
   let timer;
   clearTimeout(timer);
@@ -127,4 +123,25 @@ const observer = new MutationObserver(function() {
 });
 document.addEventListener('DOMContentLoaded', () => {
   observer.observe(document.body, { childList: true, subtree: true });
+});
+
+// --- 3. CONTROLE DO CARROSSEL ---
+document.addEventListener('DOMContentLoaded', () => {
+  const viewport = document.querySelector('.cas-carousel-viewport');
+  const prevBtn = document.querySelector('.cas-carousel-btn-prev');
+  const nextBtn = document.querySelector('.cas-carousel-btn-next');
+
+  if (viewport && prevBtn && nextBtn) {
+    prevBtn.addEventListener('click', () => {
+      const slide = viewport.querySelector('.cas-carousel-slide');
+      const slideWidth = slide ? slide.offsetWidth : viewport.offsetWidth / 3;
+      viewport.scrollTo({ left: viewport.scrollLeft - slideWidth, behavior: 'smooth' });
+    });
+
+    nextBtn.addEventListener('click', () => {
+      const slide = viewport.querySelector('.cas-carousel-slide');
+      const slideWidth = slide ? slide.offsetWidth : viewport.offsetWidth / 3;
+      viewport.scrollTo({ left: viewport.scrollLeft + slideWidth, behavior: 'smooth' });
+    });
+  }
 });

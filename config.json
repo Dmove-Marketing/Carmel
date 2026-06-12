@@ -2,15 +2,15 @@
   "project_name": "Carmel Eventos",
   "project_slug": "carmel-eventos",
   "client": "Carmel Eventos",
-  "environment": "development",
+  "environment": "production",
   "tracking": {
-    "gtm_id": "GTM-XXXXXXX",
+    "gtm_id": "GTM-5ZVQ79FQ",
     "enabled": true
   },
   "whatsapp": {
     "phone": "5511999999999",
     "display_name": "Carmel Eventos",
-    "avatar": "/images/whatsapp-avatar.jpg",
+    "avatar": "/images/cropped-carmel-logo-270x270.avif",
     "enabled": true
   },
   "forms": {
@@ -18,7 +18,7 @@
       "id": "lead-form",
       "redirect_on_success": "",
       "webhooks": [
-        "https://n8n.dmove.com.br/webhook/carmel-eventos"
+        "https://server3n8n.dmove.com.br/webhook/carmel-campo"
       ],
       "fields_required": [
         "nome",
@@ -29,8 +29,8 @@
   },
   "deploy": {
     "user": "root",
-    "server": "",
-    "remote_path": "/var/www/carmeleventos.com.br"
+    "server": "157.173.197.116",
+    "remote_path": "/var/www/ccarmeleventos.com.br"
   },
   "meta": {
     "created_at": "2026-06-11",

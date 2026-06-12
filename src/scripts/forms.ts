@@ -147,12 +147,22 @@ export function initForms() {
       const dateStr = now.toLocaleDateString('pt-BR');
       const timeStr = now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
 
+      const FIELD_MAP: Record<string, string> = {
+        nome: 'Nome',
+        telefone: 'WhatsApp',
+        email: 'E-mail',
+        data: 'Data do evento',
+        convidados: 'Convidados',
+        mensagem: 'Mensagem',
+        tipo: 'Tipo de evento',
+      };
+
       const capitalizedFields: Record<string, string> = {};
       let fonteBase = rawData['fonte'] || project;
       Object.entries(rawData).forEach(([key, val]) => {
         if (key === 'fonte') return;
-        const capKey = key.charAt(0).toUpperCase() + key.slice(1);
-        capitalizedFields[capKey] = val;
+        const displayKey = FIELD_MAP[key] ?? (key.charAt(0).toUpperCase() + key.slice(1));
+        capitalizedFields[displayKey] = val;
       });
 
       const trackingParamKeys = [
@@ -175,12 +185,12 @@ export function initForms() {
       const payload: Record<string, string> = {
         ...capitalizedFields,
         Fonte: fonte,
-        Data: dateStr,
-        'Horário': timeStr,
-        'URL da página': window.location.href,
-        'Agente de usuário': navigator.userAgent,
-        'IP remoto': '',
-        'Desenvolvido por': 'Dmove',
+        Date: dateStr,
+        Time: timeStr,
+        'Page URL': window.location.href,
+        'User Agent': navigator.userAgent,
+        'Remote IP': '',
+        'Powered by': 'Dmove',
         form_id: formId,
         form_name: formId,
         ...metaCapi,

@@ -14,14 +14,10 @@ import '../styles/eventos-corporativos.css';
   canonical="https://carmeleventos.com.br/eventos-corporativos/"
 >
   <Fragment slot="head">
-    <!-- Fontes do Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Poppins:wght@400;500;600;700&family=Raleway:wght@300;400;500;600&family=Roboto+Slab:wght@300;400;500;600&family=Roboto:wght@300;400;500;600&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-    <!-- Flatpickr (Calendário) CDN -->
-    <link rel="stylesheet" href="https://npmcdn.com/flatpickr/dist/flatpickr.min.css">
-    <script src="https://npmcdn.com/flatpickr/dist/flatpickr.min.js" defer></script>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Poppins:wght@400;500;600;700&family=Raleway:wght@300;400;500;600&family=Roboto+Slab:wght@300;400;500;600&family=Roboto:wght@300;400;500;600&family=Sora:wght@300;400;500;600&display=swap" onload="this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Poppins:wght@400;500;600;700&family=Raleway:wght@300;400;500;600&family=Roboto+Slab:wght@300;400;500;600&family=Roboto:wght@300;400;500;600&family=Sora:wght@300;400;500;600&display=swap" /></noscript>
   </Fragment>
 
   <main class="carmel-eventos-page">
@@ -252,15 +248,15 @@ import '../styles/eventos-corporativos.css';
           submitText="ENVIAR SOLICITAÇÃO"
           honeypot
           fields={[
-            { name: 'form_fields[nome]', type: 'text', label: 'Nome', required: true },
+            { name: 'nome', type: 'text', label: 'Nome', required: true },
             {
               type: 'row',
               fields: [
-                { name: 'form_fields[telefone]', type: 'text', label: 'WhatsApp', required: true },
-                { name: 'form_fields[email]', type: 'email', label: 'E-mail', required: true }
+                { name: 'telefone', type: 'text', label: 'WhatsApp', required: true },
+                { name: 'email', type: 'email', label: 'E-mail', required: true }
               ]
             },
-            { name: 'form_fields[tipo]', type: 'select', label: 'Tipo de Evento', required: true, options: [
+            { name: 'tipo', type: 'select', label: 'Tipo de Evento', required: true, options: [
               { value: '', label: '' },
               { value: 'Confraternização corporativa', label: 'Confraternização corporativa' },
               { value: 'Corporativo', label: 'Corporativo' },
@@ -274,9 +270,9 @@ import '../styles/eventos-corporativos.css';
               { value: 'Workshops, Conferências e Seminários', label: 'Workshops, Conferências e Seminários' },
               { value: 'Outros', label: 'Outros' }
             ] },
-            { name: 'form_fields[data]', type: 'text', label: 'Data do Evento', required: true, readonly: true },
-            { name: 'form_fields[convidados]', type: 'number', label: 'Nº de Pessoas', required: true },
-            { name: 'form_fields[mensagem]', type: 'textarea', label: 'Detalhes adicionais: (Não obrigatório)', required: false }
+            { name: 'data', type: 'text', label: 'Data do Evento', required: true, readonly: true },
+            { name: 'convidados', type: 'number', label: 'Nº de Pessoas', required: true },
+            { name: 'mensagem', type: 'textarea', label: 'Detalhes adicionais: (Não obrigatório)', required: false }
           ]}
         />
       </div>

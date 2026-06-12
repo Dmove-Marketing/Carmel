@@ -3,7 +3,9 @@
    Clean-Room JS
    ========================================================================== */
 
-import { gsap } from 'gsap';
+import flatpickr from 'flatpickr';
+import 'flatpickr/dist/flatpickr.css';
+window.flatpickr = flatpickr;
 
 // --- 1. MÁSCARA E VALIDAÇÃO DO TELEFONE ---
 (function() {
@@ -51,7 +53,7 @@ import { gsap } from 'gsap';
   }
 
   function inicializarValidacaoTelefone() {
-    const camposTelefone = document.querySelectorAll('input[name="form_fields[telefone]"]');
+    const camposTelefone = document.querySelectorAll('input[name="telefone"]');
     
     camposTelefone.forEach(function(campo) {
       if (campo.dataset.maskAttached) return;
@@ -85,14 +87,8 @@ import { gsap } from 'gsap';
 
 // --- 2. INICIALIZAÇÃO DO FLATPICKR (CALENDÁRIO) ---
 function inicializarCalendario() {
-  const camposDeData = document.querySelectorAll('input[name="form_fields[data]"]');
+  const camposDeData = document.querySelectorAll('input[name="data"]');
   if (camposDeData.length === 0) return;
-
-  if (typeof flatpickr === 'undefined') {
-    // Se flatpickr ainda não carregou, aguarda um instante
-    setTimeout(inicializarCalendario, 200);
-    return;
-  }
 
   const portugueseLocale = {
     weekdays: { 
@@ -131,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
   observer.observe(document.body, { childList: true, subtree: true });
 });
 
-// --- 3. CONTROLE DO CARROSSEL COM GSAP ---
+// --- 3. CONTROLE DO CARROSSEL ---
 document.addEventListener('DOMContentLoaded', () => {
   const viewport = document.querySelector('.carousel-viewport');
   const prevBtn = document.querySelector('.carousel-btn-prev');
@@ -141,21 +137,13 @@ document.addEventListener('DOMContentLoaded', () => {
     prevBtn.addEventListener('click', () => {
       const slide = viewport.querySelector('.carousel-slide');
       const slideWidth = slide ? slide.offsetWidth + 15 : viewport.offsetWidth / 2;
-      gsap.to(viewport, {
-        scrollLeft: viewport.scrollLeft - slideWidth,
-        duration: 0.6,
-        ease: 'power2.out'
-      });
+      viewport.scrollTo({ left: viewport.scrollLeft - slideWidth, behavior: 'smooth' });
     });
 
     nextBtn.addEventListener('click', () => {
       const slide = viewport.querySelector('.carousel-slide');
       const slideWidth = slide ? slide.offsetWidth + 15 : viewport.offsetWidth / 2;
-      gsap.to(viewport, {
-        scrollLeft: viewport.scrollLeft + slideWidth,
-        duration: 0.6,
-        ease: 'power2.out'
-      });
+      viewport.scrollTo({ left: viewport.scrollLeft + slideWidth, behavior: 'smooth' });
     });
   }
 });

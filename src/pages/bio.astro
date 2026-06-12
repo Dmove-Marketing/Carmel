@@ -14,11 +14,6 @@ import '../styles/bio.css';
   canonical="https://carmeleventos.com.br/bio/"
   ogImage="/images/og-bio.jpg"
 >
-  <Fragment slot="head">
-    <!-- Flatpickr (Calendário) CDN -->
-    <link rel="stylesheet" href="https://npmcdn.com/flatpickr/dist/flatpickr.min.css">
-    <script src="https://npmcdn.com/flatpickr/dist/flatpickr.min.js" defer></script>
-  </Fragment>
 
   <div class="carmel-bio-page">
     
@@ -66,15 +61,15 @@ import '../styles/bio.css';
               submitText="ENVIAR SOLICITAÇÃO"
               honeypot
               fields={[
-                { name: 'form_fields[nome]', type: 'text', label: 'Nome', placeholder: '', required: true },
+                { name: 'nome', type: 'text', label: 'Nome', placeholder: '', required: true },
                 {
                   type: 'row',
                   fields: [
-                    { name: 'form_fields[telefone]', type: 'text', label: 'WhatsApp', placeholder: '', required: true },
-                    { name: 'form_fields[email]', type: 'email', label: 'E-mail', placeholder: '', required: true }
+                    { name: 'telefone', type: 'text', label: 'WhatsApp', placeholder: '', required: true },
+                    { name: 'email', type: 'email', label: 'E-mail', placeholder: '', required: true }
                   ]
                 },
-                { name: 'form_fields[tipo]', type: 'select', label: 'Tipo de evento', required: true, options: [
+                { name: 'tipo', type: 'select', label: 'Tipo de evento', required: true, options: [
                   { value: '', label: '', disabled: true, selected: true },
                   { value: 'Aniversário', label: 'Aniversário' },
                   { value: 'Debutante', label: 'Debutante' },
@@ -95,10 +90,10 @@ import '../styles/bio.css';
                   { value: 'Workshops, Conferências e Seminários', label: 'Workshops, Conferências e Seminários' },
                   { value: 'Outros', label: 'Outros' }
                 ] },
-                { name: 'form_fields[data]', type: 'text', label: 'Data do Evento', placeholder: '', required: true },
-                { name: 'form_fields[convidados]', type: 'number', label: 'N° de Pessoas', placeholder: '', required: true },
-                { name: 'form_fields[mensagem]', type: 'textarea', label: 'Detalhes adicionais: (Não obrigatório)', placeholder: '', required: false, rows: 3 },
-                { name: 'form_fields[fonte]', type: 'hidden', value: 'Landing page/bio' }
+                { name: 'data', type: 'text', label: 'Data do Evento', placeholder: '', required: true },
+                { name: 'convidados', type: 'number', label: 'N° de Pessoas', placeholder: '', required: true },
+                { name: 'mensagem', type: 'textarea', label: 'Detalhes adicionais: (Não obrigatório)', placeholder: '', required: false, rows: 3 },
+                { name: 'fonte', type: 'hidden', value: 'Landing page/bio' }
               ]}
             />
           </div>

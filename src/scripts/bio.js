@@ -3,6 +3,10 @@
    Clean-Room JS
    ========================================================================== */
 
+import flatpickr from 'flatpickr';
+import 'flatpickr/dist/flatpickr.css';
+window.flatpickr = flatpickr;
+
 // --- 1. MÁSCARA E VALIDAÇÃO DO TELEFONE ---
 (function() {
   function aplicarMascaraTelefone(valor) {
@@ -49,7 +53,7 @@
   }
 
   function inicializarValidacaoTelefone() {
-    const camposTelefone = document.querySelectorAll('input[name="form_fields[telefone]"]');
+    const camposTelefone = document.querySelectorAll('input[name="telefone"]');
     
     camposTelefone.forEach(function(campo) {
       if (campo.dataset.maskAttached) return;
@@ -83,14 +87,8 @@
 
 // --- 2. INICIALIZAÇÃO DO FLATPICKR (CALENDÁRIO) ---
 function inicializarCalendario() {
-  const camposDeData = document.querySelectorAll('input[name="form_fields[data]"]');
+  const camposDeData = document.querySelectorAll('input[name="data"]');
   if (camposDeData.length === 0) return;
-
-  if (typeof flatpickr === 'undefined') {
-    // Se flatpickr ainda não carregou, aguarda um instante
-    setTimeout(inicializarCalendario, 200);
-    return;
-  }
 
   const portugueseLocale = {
     weekdays: { 

@@ -94,10 +94,6 @@ const welcomeLines  = welcomeMessage.split('\n');
             </div>
 
             <div class="wa-form-group">
-              <input type="text" name="local_evento" id="wa-local" placeholder="Espaço da Festa" required class="wa-input" />
-            </div>
-
-            <div class="wa-form-group">
               <input type="number" name="convidados" id="wa-convidados" placeholder="Quantidade de convidados" required class="wa-input" min="1" />
             </div>
 
@@ -279,10 +275,20 @@ const welcomeLines  = welcomeMessage.split('\n');
       const data = {};
       formData.forEach((v, k) => { data[k] = v.toString(); });
 
+      const FIELD_MAP = {
+        nome: 'Nome',
+        telefone: 'WhatsApp',
+        email: 'E-mail',
+        data: 'Data do evento',
+        convidados: 'Convidados',
+        mensagem: 'Mensagem',
+        tipo: 'Tipo de evento',
+      };
+
       const capitalized = {};
       Object.entries(data).forEach(([key, val]) => {
-        const capKey = key.charAt(0).toUpperCase() + key.slice(1);
-        capitalized[capKey] = val;
+        const displayKey = FIELD_MAP[key] ?? (key.charAt(0).toUpperCase() + key.slice(1));
+        capitalized[displayKey] = val;
       });
 
       const trackingRaw = sessionStorage.getItem('dmove_tracking');
@@ -302,14 +308,15 @@ const welcomeLines  = welcomeMessage.split('\n');
       const now = new Date();
       const payload = {
         ...capitalized,
-        Fonte:             fonte,
-        Data:              now.toLocaleDateString('pt-BR'),
-        'Horário':         now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }),
-        'URL da página':   window.location.href,
-        'Agente de usuário': navigator.userAgent,
-        'Desenvolvido por': 'Dmove',
-        form_id:           'form_whatsapp',
-        form_name:         'form_whatsapp',
+        Fonte:        fonte,
+        Date:         now.toLocaleDateString('pt-BR'),
+        Time:         now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }),
+        'Page URL':   window.location.href,
+        'User Agent': navigator.userAgent,
+        'Remote IP':  '',
+        'Powered by': 'Dmove',
+        form_id:      'form_whatsapp',
+        form_name:    'form_whatsapp',
       };
 
       try {
@@ -340,7 +347,6 @@ const welcomeLines  = welcomeMessage.split('\n');
         ``,
         `*Tipo:* ${data.tipo}`,
         `*Data:* ${data.data}`,
-        `*Local:* ${data.local_evento}`,
         `*Convidados:* ${data.convidados}`,
         `*Nome:* ${data.nome}`,
         `*E-mail:* ${data.email}`,

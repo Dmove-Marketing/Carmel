@@ -14,265 +14,307 @@ import '../styles/casamentos.css';
   canonical="https://carmeleventos.com.br/casamentos/"
 >
   <Fragment slot="head">
-    <!-- Fontes do Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Poppins:wght@400;500;600;700&family=Raleway:wght@300;400;500;600&family=Roboto+Slab:wght@300;400;500;600&family=Roboto:wght@300;400;500;600&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-    <!-- Flatpickr (Calendário) CDN -->
-    <link rel="stylesheet" href="https://npmcdn.com/flatpickr/dist/flatpickr.min.css">
-    <script src="https://npmcdn.com/flatpickr/dist/flatpickr.min.js" defer></script>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Poppins:wght@400;500;600;700&family=Raleway:wght@300;400;500;600&family=Roboto+Slab:wght@300;400;500;600&family=Roboto:wght@300;400;500;600&family=Sora:wght@300;400;500;600&display=swap" onload="this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Poppins:wght@400;500;600;700&family=Raleway:wght@300;400;500;600&family=Roboto+Slab:wght@300;400;500;600&family=Roboto:wght@300;400;500;600&family=Sora:wght@300;400;500;600&display=swap" /></noscript>
   </Fragment>
 
   <main class="carmel-casamentos-page">
-    
+
     <!-- 1. HERO SECTION -->
-    <section class="hero-section">
-      <div class="hero-logo-wrapper">
+    <section class="cas-hero-section">
+      <div class="cas-hero-logo-wrapper">
         <Img src="carmel-logo-1.avif" alt="Carmel Eventos Logo" priority />
       </div>
-      <h1 class="hero-title">Viva o seu casamento no campo com charme, elegância e personalidade</h1>
-      <p class="hero-subtitle">Um espaço encantador aliado a uma estrutura que valoriza cada momento da sua celebração.</p>
-      <div class="hero-btn-wrapper">
-        <a class="btn hero-btn" href="#contato">Solicite um orçamento</a>
+      <h1 class="cas-hero-title">Viva o seu casamento no campo com charme, elegância e personalidade</h1>
+      <p class="cas-hero-subtitle">Um espaço encantador aliado a uma estrutura que valoriza cada momento da sua celebração.</p>
+      <div class="cas-hero-btn-wrapper">
+        <a class="cas-hero-btn" href="#contato">Solicite um orçamento</a>
       </div>
     </section>
 
-    <!-- 2. REFÚGIO SECTION -->
-    <section class="refugio-section pattern-dark-bg">
-      <h2 class="section-title">Um cenário no campo pensado para casamentos elegantes</h2>
-      <div class="refugio-desc section-desc">
+    <!-- 2. SOBRE SECTION (fundo dourado) -->
+    <section class="cas-sobre-section cas-pattern-gold-bg">
+      <h2 class="cas-section-title">Um cenário no campo pensado para casamentos elegantes</h2>
+      <div class="cas-sobre-desc cas-section-desc">
         <p>Localizado em Indaiatuba, a cerca de 1h30 de São Paulo, ao lado do Parque Mirim, o Carmel Campo é o destino ideal para casais que desejam um casamento no campo com personalidade e alto padrão.</p>
         <p>O espaço foi projetado e estruturado para receber celebrações a partir de 100 convidados, oferecendo não apenas um cenário encantador, mas uma experiência fluida, confortável e sofisticada em todos os momentos do evento.</p>
         <p>O salão envidraçado integrado ao verde e os ambientes versáteis criam o cenário perfeito para celebrações marcantes, com fluidez, sofisticação e uma experiência completa do início ao fim.</p>
       </div>
     </section>
 
-    <!-- 3. MAIN GALLERY SECTION (12 imagens) -->
-    <section class="gallery-section pattern-dark-bg">
-      <h2 class="section-title">Sofisticação sob medida para a sua celebração</h2>
-      <div class="gallery-grid main-gallery">
-        <div class="gallery-item">
+    <!-- 3. PARALLAX IMAGE DIVIDER -->
+    <div class="cas-fachada-divider"></div>
+
+    <!-- 4. GALERIA SECTION (fundo dourado, 4 colunas 9:16) -->
+    <section class="cas-galeria-section cas-pattern-gold-bg">
+      <h2 class="cas-section-title">Sofisticação sob medida para a sua celebração</h2>
+      <div class="cas-gallery-grid">
+        <div class="cas-gallery-item">
           <Img src="carmel-estrutura-00001.avif" alt="Casamento no campo - Carmel Campo" />
+          <div class="cas-gallery-overlay"></div>
         </div>
-        <div class="gallery-item">
+        <div class="cas-gallery-item">
           <Img src="WhatsApp-Image-2025-12-15-at-1.53.18-PM.avif" alt="Decoração de casamento no Carmel Campo" />
+          <div class="cas-gallery-overlay"></div>
         </div>
-        <div class="gallery-item">
+        <div class="cas-gallery-item">
           <Img src="carmel-estrutura-00008.avif" alt="Mesa de doces e bolo de casamento no Carmel" />
+          <div class="cas-gallery-overlay"></div>
         </div>
-        <div class="gallery-item">
+        <div class="cas-gallery-item">
           <Img src="WhatsApp-Image-2025-12-15-at-1.53.17-PM.avif" alt="Cerimônia ao ar livre no Carmel Campo" />
+          <div class="cas-gallery-overlay"></div>
         </div>
-        <div class="gallery-item">
+        <div class="cas-gallery-item">
           <Img src="carmel-estrutura-00002.avif" alt="Vista externa do salão de casamentos" />
+          <div class="cas-gallery-overlay"></div>
         </div>
-        <div class="gallery-item">
+        <div class="cas-gallery-item">
           <Img src="carmel-estrutura-00005.avif" alt="Ambiente do altar de casamento no Carmel" />
+          <div class="cas-gallery-overlay"></div>
         </div>
-        <div class="gallery-item">
+        <div class="cas-gallery-item">
           <Img src="carmel-estrutura-00003.avif" alt="Decoração de casamento com flores e luzes" />
+          <div class="cas-gallery-overlay"></div>
         </div>
-        <div class="gallery-item">
+        <div class="cas-gallery-item">
           <Img src="carmel-estrutura-00004.avif" alt="Detalhes da mesa de jantar do casamento" />
+          <div class="cas-gallery-overlay"></div>
         </div>
-        <div class="gallery-item">
+        <div class="cas-gallery-item">
           <Img src="WhatsApp-Image-2025-12-15-at-1.53.18-PM-1.avif" alt="Jardim e paisagismo para cerimônia de casamento" />
+          <div class="cas-gallery-overlay"></div>
         </div>
-        <div class="gallery-item">
+        <div class="cas-gallery-item">
           <Img src="carmel-estrutura-00006.avif" alt="Noiva caminhando ao altar no Carmel" />
+          <div class="cas-gallery-overlay"></div>
         </div>
-        <div class="gallery-item">
+        <div class="cas-gallery-item">
           <Img src="WhatsApp-Image-2025-12-15-at-1.53.18-PM-2.avif" alt="Espaço da pista de dança e luzes de casamento" />
+          <div class="cas-gallery-overlay"></div>
         </div>
-        <div class="gallery-item">
+        <div class="cas-gallery-item">
           <Img src="carmel-estrutura-00007.avif" alt="Entrada dos noivos no salão envidraçado" />
+          <div class="cas-gallery-overlay"></div>
         </div>
       </div>
     </section>
 
-    <!-- 4. FEATURES SECTION (Diferenciais) -->
-    <section class="features-section pattern-dark-bg">
-      <h2 class="section-title">Conforto, sofisticação e estrutura para um dia à altura da sua celebração</h2>
-      <p class="section-desc">Um espaço preparado para receber celebrações de médio e grande porte, com ambientes integrados, suporte técnico e infraestrutura que garantem fluidez, elegância e uma experiência completa do início ao fim.</p>
-      
-      <div class="features-grid">
+    <!-- 5. DIFERENCIAIS / FEATURES SECTION (fundo escuro) -->
+    <section class="cas-features-section cas-pattern-dark-bg">
+      <h2 class="cas-section-title">Conforto, sofisticação e estrutura para um dia à altura da sua celebração</h2>
+      <p class="cas-section-desc">Um espaço preparado para receber celebrações de médio e grande porte, com ambientes integrados, suporte técnico e infraestrutura que garantem fluidez, elegância e uma experiência completa do início ao fim.</p>
+
+      <div class="cas-features-grid">
+
         <!-- Feature 1: Capacidade -->
-        <div class="feature-box">
-          <div class="feature-icon-wrapper">
+        <div class="cas-feature-box">
+          <div class="cas-feature-icon-wrapper">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-              <circle cx="12" cy="10" r="3"></circle>
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
             </svg>
           </div>
-          <span class="feature-title">Capacidade para até<br>200 convidados</span>
+          <span class="cas-feature-title">Capacidade para até<br>200 convidados</span>
         </div>
 
-        <!-- Feature 2: Suite da noiva / quarto do noivo -->
-        <div class="feature-box">
-          <div class="feature-icon-wrapper">
+        <!-- Feature 2: Suite da noiva (crown) -->
+        <div class="cas-feature-box">
+          <div class="cas-feature-icon-wrapper">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="14" r="6"></circle>
-              <path d="M12 2v6"></path>
-              <path d="M9 5h6"></path>
+              <path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7z"></path>
+              <path d="M5 20h14"></path>
             </svg>
           </div>
-          <span class="feature-title">Suite da noiva<br>e quarto do noivo</span>
+          <span class="cas-feature-title">Suite da noiva<br>e quarto do noivo</span>
         </div>
 
-        <!-- Feature 3: Espaço padrinhos -->
-        <div class="feature-box">
-          <div class="feature-icon-wrapper">
+        <!-- Feature 3: Espaço padrinhos (users) -->
+        <div class="cas-feature-box">
+          <div class="cas-feature-icon-wrapper">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M6 3h12l-2 6H8L6 3z"></path>
-              <path d="M10 9v12l2 2 2-2V9h-4z"></path>
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
             </svg>
           </div>
-          <span class="feature-title">Espaço exclusivo<br>para os padrinhos</span>
+          <span class="cas-feature-title">Espaço exclusivo<br>para os padrinhos</span>
         </div>
 
-        <!-- Feature 4: Salão envidraçado -->
-        <div class="feature-box">
-          <div class="feature-icon-wrapper">
+        <!-- Feature 4: Salão envidraçado (window) -->
+        <div class="cas-feature-box">
+          <div class="cas-feature-icon-wrapper">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2L3 9h9V2z"></path>
-              <path d="M12 9v13"></path>
-              <path d="M12 9h9l-9-7v7z"></path>
-              <path d="M8 15h8"></path>
+              <rect x="2" y="3" width="20" height="18" rx="2"></rect>
+              <path d="M2 12h20"></path>
+              <path d="M12 3v18"></path>
             </svg>
           </div>
-          <span class="feature-title">Salão envidraçado com vista<br>para o verde</span>
+          <span class="cas-feature-title">Salão envidraçado com vista<br>para o verde</span>
         </div>
 
         <!-- Feature 5: Gerador -->
-        <div class="feature-box">
-          <div class="feature-icon-wrapper">
+        <div class="cas-feature-box">
+          <div class="cas-feature-icon-wrapper">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
             </svg>
           </div>
-          <span class="feature-title">Gerador próprio</span>
+          <span class="cas-feature-title">Gerador<br>próprio</span>
         </div>
 
         <!-- Feature 6: Estacionamento -->
-        <div class="feature-box">
-          <div class="feature-icon-wrapper">
+        <div class="cas-feature-box">
+          <div class="cas-feature-icon-wrapper">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="1" y="3" width="15" height="13"></rect>
-              <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
-              <circle cx="5.5" cy="18.5" r="2.5"></circle>
-              <circle cx="18.5" cy="18.5" r="2.5"></circle>
+              <path d="m19 10-1.5-5.5a1 1 0 0 0-1-.5h-9a1 1 0 0 0-1 .5L5 10" />
+              <path d="M4 17h16" />
+              <rect x="3" y="10" width="18" height="7" rx="2" />
+              <circle cx="7" cy="13.5" r="1" />
+              <circle cx="17" cy="13.5" r="1" />
+              <path d="M5 20v-3" />
+              <path d="M19 20v-3" />
             </svg>
           </div>
-          <span class="feature-title">Estacionamento amplo</span>
+          <span class="cas-feature-title">Estacionamento<br>amplo</span>
         </div>
 
         <!-- Feature 7: Cozinha com churrasqueira -->
-        <div class="feature-box">
-          <div class="feature-icon-wrapper">
+        <div class="cas-feature-box">
+          <div class="cas-feature-icon-wrapper">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2v20M17 5H7M19 10H5M21 15H3"></path>
+              <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2M7 2v20M21 15V2v0a5 5 0 0 0-5 5v8c0 1.1.9 2 2 2h1a2 2 0 0 0 2-2zM19 17v5"/>
             </svg>
           </div>
-          <span class="feature-title">Cozinha com churrasqueira</span>
+          <span class="cas-feature-title">Cozinha de suporte<br>com churrasqueira</span>
         </div>
 
-        <!-- Feature 8: Área externa paisagismo -->
-        <div class="feature-box">
-          <div class="feature-icon-wrapper">
+        <!-- Feature 8: Área externa (trees) -->
+        <div class="cas-feature-box">
+          <div class="cas-feature-icon-wrapper">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 22a7 7 0 0 0 7-7c0-4.3-7-11-7-11S5 10.7 5 15a7 7 0 0 0 7 7z"></path>
+              <path d="M10 10v.2A3 3 0 0 1 8.9 16H5a3 3 0 0 1-1-5.8V10a3 3 0 0 1 6 0Z"></path>
+              <path d="M7 16v6"></path>
+              <path d="M13 19v3"></path>
+              <path d="M12 19h8.3a1 1 0 0 0 .7-1.7L18 14h.3a1 1 0 0 0 .7-1.7L16 9h.2a1 1 0 0 0 .8-1.7L13 3l-1.4 1.5"></path>
             </svg>
           </div>
-          <span class="feature-title">Área externa com paisagismo e<br>vista privilegiada</span>
+          <span class="cas-feature-title">Área externa com paisagismo<br>e vista privilegiada</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 6. DETALHES CARROSSEL SECTION (fundo dourado) -->
+    <section class="cas-detalhes-section cas-pattern-gold-bg">
+      <h2 class="cas-section-title">O charme do Carmel Campo em cada detalhe</h2>
+
+      <div class="cas-carousel-outer-wrapper">
+        <div class="cas-carousel-container">
+
+          <!-- Prev Button -->
+          <button class="cas-carousel-btn cas-carousel-btn-prev" aria-label="Slide anterior">
+            <svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+              <path d="M646 125C629 125 613 133 604 142L308 442C296 454 292 471 292 487 292 504 296 521 308 533L604 854C617 867 629 875 646 875 663 875 679 871 692 858 704 846 713 829 713 812 713 796 708 779 692 767L438 487 692 225C700 217 708 204 708 187 708 171 704 154 692 142 675 129 663 125 646 125Z"/>
+            </svg>
+          </button>
+
+          <!-- Slides Viewport -->
+          <div class="cas-carousel-viewport">
+            <div class="cas-carousel-slide">
+              <Img src="carmel-galeria-00001.avif" alt="Detalhe decoração de casamento Carmel" />
+            </div>
+            <div class="cas-carousel-slide">
+              <Img src="carmel-galeria-00002.avif" alt="Arranjos florais de casamento" />
+            </div>
+            <div class="cas-carousel-slide">
+              <Img src="carmel-galeria-00003.avif" alt="Bolo de casamento e docinhos decorados" />
+            </div>
+            <div class="cas-carousel-slide">
+              <Img src="carmel-galeria-00004.avif" alt="Detalhe do altar e decoração de casamento" />
+            </div>
+            <div class="cas-carousel-slide">
+              <Img src="carmel-galeria-00005.avif" alt="Mesa posta e taças para jantar de casamento" />
+            </div>
+            <div class="cas-carousel-slide">
+              <Img src="carmel-galeria-00006.avif" alt="Flores e iluminação cenográfica no Carmel" />
+            </div>
+            <div class="cas-carousel-slide">
+              <Img src="carmel-galeria-00007.avif" alt="Luzes e decoração aérea para festa no campo" />
+            </div>
+            <div class="cas-carousel-slide">
+              <Img src="carmel-galeria-00008.avif" alt="Detalhes rústicos e sofisticados de decoração" />
+            </div>
+          </div>
+
+          <!-- Next Button -->
+          <button class="cas-carousel-btn cas-carousel-btn-next" aria-label="Próximo slide">
+            <svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+              <path d="M696 533C708 521 713 504 713 487 713 471 708 454 696 446L400 146C388 133 375 125 354 125 338 125 325 129 313 142 300 154 292 171 292 187 292 204 296 221 308 233L563 492 304 771C292 783 288 800 288 817 288 833 296 850 308 863 321 871 338 875 354 875 371 875 388 867 400 854L696 533Z"/>
+            </svg>
+          </button>
+
         </div>
       </div>
     </section>
 
-    <!-- 5. DETAIL GALLERY SECTION (8 imagens) -->
-    <section class="gallery-section detail-gallery-section pattern-dark-bg">
-      <h2 class="section-title">O charme do Carmel Campo em cada detalhe</h2>
-      <div class="gallery-grid detail-gallery">
-        <div class="gallery-item">
-          <Img src="carmel-galeria-00001.avif" alt="Detalhe decoração de casamento Carmel" />
-        </div>
-        <div class="gallery-item">
-          <Img src="carmel-galeria-00002.avif" alt="Arranjos florais de casamento" />
-        </div>
-        <div class="gallery-item">
-          <Img src="carmel-galeria-00003.avif" alt="Bolo de casamento e docinhos decorados" />
-        </div>
-        <div class="gallery-item">
-          <Img src="carmel-galeria-00004.avif" alt="Detalhe do altar e decoração de casamento" />
-        </div>
-        <div class="gallery-item">
-          <Img src="carmel-galeria-00005.avif" alt="Mesa posta e taças para jantar de casamento" />
-        </div>
-        <div class="gallery-item">
-          <Img src="carmel-galeria-00006.avif" alt="Flores e iluminação cenográfica no Carmel" />
-        </div>
-        <div class="gallery-item">
-          <Img src="carmel-galeria-00007.avif" alt="Luzes e decoração aérea para festa no campo" />
-        </div>
-        <div class="gallery-item">
-          <Img src="carmel-galeria-00008.avif" alt="Detalhes rústicos e sofisticados de decoração" />
-        </div>
+    <!-- 7. CONTATO (FORMULÁRIO) SECTION -->
+    <section class="cas-contato-section" id="contato">
+      <h2 class="cas-section-title">Pronta para viver um casamento realmente inesquecível?</h2>
+
+      <div class="cas-form-card-wrapper">
+        <p class="cas-form-card-subtitle">Preencha o formulário para receber nosso contato.</p>
+        <LeadForm
+          formId="lead-form-casamentos"
+          project={config.project_slug}
+          submitUrl={config.forms['lead-form'].webhooks[0]}
+          redirectUrl={config.forms['lead-form'].redirect_on_success}
+          submitText="ENVIAR SOLICITAÇÃO"
+          honeypot
+          fields={[
+            { name: 'nome', type: 'text', label: 'Nome completo', required: true },
+            {
+              type: 'row',
+              fields: [
+                { name: 'telefone', type: 'text', label: 'WhatsApp', required: true },
+                { name: 'email', type: 'email', label: 'E-mail', required: true }
+              ]
+            },
+            { name: 'data', type: 'text', label: 'Data do Evento', required: true, readonly: true },
+            { name: 'convidados', type: 'number', label: 'N° de Convidados', required: true },
+            { name: 'mensagem', type: 'textarea', label: 'Detalhes adicionais (Não obrigatório)', required: false }
+          ]}
+        />
       </div>
     </section>
 
-    <!-- 6. CONTACT SECTION -->
-    <section id="contato" class="contato-section pattern-dark-bg">
-      <div class="contato-container">
-        <div class="contato-info">
-          <h2 class="section-title">Pronta para viver um casamento realmente inesquecível?</h2>
-        </div>
-        <div class="contato-form-wrapper">
-          <h3 class="form-title">Preencha o formulário para receber nosso contato.</h3>
-          <LeadForm
-            formId="lead-form"
-            project={config.project_slug}
-            submitUrl={config.forms['lead-form'].webhooks[0]}
-            redirectUrl={config.forms['lead-form'].redirect_on_success}
-            submitText="ENVIAR SOLICITAÇÃO"
-            honeypot
-            fields={[
-              { name: 'form_fields[nome]', type: 'text', label: 'Nome completo', required: true },
-              { name: 'form_fields[telefone]', type: 'text', label: 'WhatsApp', required: true },
-              { name: 'form_fields[email]', type: 'email', label: 'E-mail', required: true },
-              { name: 'form_fields[data]', type: 'text', label: 'Data do Evento', required: true },
-              { name: 'form_fields[convidados]', type: 'number', label: 'N° de Convidados', required: true },
-              { name: 'form_fields[mensagem]', type: 'textarea', label: 'Detalhes adicionais (opcional)', required: false }
-            ]}
-          />
-        </div>
-      </div>
-    </section>
+    <!-- 8. MAPA / LOCALIZAÇÃO SECTION -->
+    <section class="cas-mapa-section cas-pattern-dark-bg">
+      <h2 class="cas-section-title">O cenário ideal para um casamento no campo com estrutura completa, a poucos minutos de São Paulo</h2>
 
-    <!-- 7. DESC-MAP SECTION -->
-    <section class="mapa-desc-section pattern-dark-bg">
-      <h2 class="section-title">O cenário ideal para um casamento no campo com estrutura completa, a poucos minutos de São Paulo</h2>
-    </section>
-
-    <!-- 8. STATIC MAP SECTION -->
-    <section class="mapa-section">
-      <div class="mapa-image-container">
+      <div class="cas-mapa-image-container">
         <Img src="Screenshot-2025-12-09-at-19.16.34.avif" alt="Mapa de localização do Carmel Campo em Indaiatuba" width={1920} quality={100} />
       </div>
     </section>
 
     <!-- 9. FOOTER SECTION -->
-    <footer class="casamentos-footer">
-      <div class="footer-container">
-        <div class="footer-copyright">
+    <footer class="cas-footer-section">
+      <div class="cas-footer-container">
+        <div class="cas-footer-copyright">
           <p>© 2026 – Carmel Campo – Todos os direitos reservados.</p>
         </div>
-        <div class="footer-logo">
-          <Img src="carmel-logo-1.avif" alt="Carmel Campo Logo" width={100} height={100} />
+        <div class="cas-footer-logo">
+          <Img src="carmel-logo-1.avif" alt="Carmel Campo Logo" />
         </div>
-        <div class="footer-credits">
-          <span>Desenvolvido por:</span>
-          <a href="https://dmove.com.br" target="_blank" rel="noopener noreferrer">
-            <Img src="Versao-Principal-Negativo-scaled-e1750426923582.avif" alt="Dmove Logo" width={120} height={30} />
+        <div class="cas-footer-dmove">
+          <span>Desenvolvido por</span>
+          <a class="cas-footer-dmove-logo" href="https://dmove.com.br" target="_blank" rel="noopener noreferrer">
+            <Img src="Versao-Principal-Negativo-scaled-e1750426923582.avif" alt="Dmove Logo" />
           </a>
         </div>
       </div>
