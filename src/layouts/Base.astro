@@ -10,6 +10,8 @@ import '@fontsource/montserrat/800.css';
 import GTMHead from '../components/tracking/GTMHead.astro';
 import GTMBody from '../components/tracking/GTMBody.astro';
 import UTMCapture from '../components/tracking/UTMCapture.astro';
+import WhatsAppModal from '../components/layout/WhatsAppModal.astro';
+
 
 interface Props {
   title: string;
@@ -86,6 +88,9 @@ const defaultJsonLd = {
 
     <!-- Conteúdo da página -->
     <slot />
+
+    <!-- WhatsApp Flutuante — configurar em config.json > whatsapp -->
+    <WhatsAppModal />
 
     <!-- Scripts adicionais -->
     <slot name="scripts" />

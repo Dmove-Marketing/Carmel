@@ -1,0 +1,448 @@
+/* ==========================================================================
+   CARMEL EVENTOS — PÁGINA BIO (LINKS E CONTATO)
+   Clean-Room CSS (Sem classes Elementor/WordPress)
+   ========================================================================== */
+
+/* --- Fontes & Variáveis Locais --- */
+:root {
+  --font-gilda: 'Gilda Display', serif;
+  --font-raleway: 'Raleway', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
+  --font-montserrat: 'Montserrat', sans-serif;
+
+  --carmel-gold: #AA8B4A;
+  --carmel-dark-gold: #856d39;
+  --carmel-brown-dark: #291C01;
+  --carmel-brown-light: #272623;
+  --carmel-footer-bg: #232323;
+  --carmel-overlay: #1B110B;
+}
+
+/* --- Wrapper Scoped da Página --- */
+.carmel-bio-page {
+  font-family: var(--font-raleway), sans-serif;
+  background-color: var(--carmel-brown-dark);
+  color: #FFFFFF;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- 1. HEADER HERO BANNER --- */
+.carmel-bio-page .bio-header {
+  position: relative;
+  height: 36vh;
+  min-height: 220px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../assets/images/bio-header-bg.avif');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.carmel-bio-page .bio-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: #000000;
+  opacity: 0.25;
+  z-index: 1;
+}
+
+.carmel-bio-page .bio-logo-wrapper {
+  position: relative;
+  z-index: 2;
+  width: 250px;
+  max-width: 250px;
+}
+
+.carmel-bio-page .bio-logo-wrapper img {
+  width: 100%;
+  height: auto;
+}
+
+/* --- 2. CONTEÚDO PRINCIPAL (MAIN) --- */
+.carmel-bio-page .bio-main {
+  flex: 1;
+  padding: 40px 20px 80px 20px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Overlay sutil de arabescos no fundo */
+.carmel-bio-page .pattern-dark-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('../assets/images/carmel-pattern.avif');
+  background-repeat: repeat-y;
+  background-position: center top;
+  opacity: 0.18;
+  mix-blend-mode: screen;
+  z-index: -1;
+}
+
+.carmel-bio-page .bio-container {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Título principal */
+.carmel-bio-page .bio-title {
+  font-family: var(--font-gilda), serif;
+  font-size: 41px;
+  font-weight: 400;
+  line-height: 1.15;
+  color: #F2EDEB;
+  text-align: center;
+  margin-bottom: 40px;
+  max-width: 100%;
+}
+
+/* Container de Links Rápidos */
+.carmel-bio-page .bio-links {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+/* Botões de links rápidos */
+.carmel-bio-page .bio-link-btn {
+  width: 100%;
+  background-color: var(--carmel-gold);
+  border: 1px solid transparent;
+  font-family: var(--font-raleway), sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #FFFFFF;
+  border-radius: 80px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.carmel-bio-page .bio-link-btn:hover {
+  background-color: var(--carmel-dark-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+.carmel-bio-page .btn-icon {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* --- 3. CARD DO FORMULÁRIO DE CONTATO --- */
+.carmel-bio-page .bio-contact-section {
+  width: 100%;
+}
+
+.carmel-bio-page .bio-contact-card {
+  width: 100%;
+  background-color: var(--carmel-gold);
+  border-radius: 40px;
+  padding: 25px 40px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.carmel-bio-page .bio-contact-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('../assets/images/carmel-pattern.avif');
+  background-repeat: repeat;
+  background-size: cover;
+  opacity: 0.12;
+  border-radius: 40px;
+  pointer-events: none;
+}
+
+.carmel-bio-page .contact-title {
+  font-family: var(--font-raleway), sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.carmel-bio-page .contact-divider {
+  width: 100%;
+  height: 2px;
+  background-color: #FFFFFF;
+  margin: 15px 0 25px 0;
+  opacity: 0.8;
+}
+
+/* Estilização interna do formulário LeadForm */
+.carmel-bio-page .bio-contact-card form {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+/* Grid de campos */
+.carmel-bio-page .bio-contact-card .lead-form-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.carmel-bio-page .bio-contact-card .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.carmel-bio-page .bio-contact-card .form-label {
+  display: block !important;
+  color: #FFFFFF !important;
+  font-family: var(--font-raleway), sans-serif;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  margin-bottom: 0px !important;
+  margin-top: 5px !important;
+  opacity: 0.95;
+}
+
+/* Inputs de texto, email, select e textarea */
+.carmel-bio-page .bio-contact-card .form-input,
+.carmel-bio-page .bio-contact-card .form-select,
+.carmel-bio-page .bio-contact-card .form-textarea {
+  width: 100%;
+  background-color: transparent !important;
+  color: #FFFFFF !important;
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 18px !important;
+  font-weight: 400;
+  border: none !important;
+  border-bottom: 1px solid #FFFFFF !important;
+  border-radius: 0px !important;
+  padding: 2px 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  transition: border-color 0.3s ease;
+}
+
+.carmel-bio-page .bio-contact-card .form-input:focus,
+.carmel-bio-page .bio-contact-card .form-select:focus,
+.carmel-bio-page .bio-contact-card .form-textarea:focus {
+  border-bottom-color: var(--carmel-brown-dark) !important;
+}
+
+/* Cor do texto do placeholder */
+.carmel-bio-page .bio-contact-card .form-input::placeholder,
+.carmel-bio-page .bio-contact-card .form-textarea::placeholder {
+  color: rgba(255, 255, 255, 0.8) !important;
+  opacity: 1 !important;
+}
+
+/* Estilos específicos para o select */
+.carmel-bio-page .bio-contact-card .form-select {
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 4px center;
+  background-size: 16px;
+  padding-right: 24px !important;
+}
+
+.carmel-bio-page .bio-contact-card .form-select option {
+  background-color: var(--carmel-gold);
+  color: #FFFFFF;
+}
+
+.carmel-bio-page .bio-contact-card .form-select option:disabled {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.carmel-bio-page .bio-contact-card .form-textarea {
+  resize: vertical;
+}
+
+/* Botão de envio */
+.carmel-bio-page .bio-contact-card .form-submit {
+  width: 100%;
+  background-color: #59D382 !important;
+  color: #FFFFFF !important;
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  border: 1px solid #59D382 !important;
+  border-radius: 12px !important;
+  padding: 16px 0 !important;
+  margin-top: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(89, 211, 130, 0.2);
+  text-transform: uppercase;
+}
+
+.carmel-bio-page .bio-contact-card .form-submit:hover {
+  background-color: #4cc774 !important;
+  border-color: #4cc774 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(89, 211, 130, 0.35);
+}
+
+.carmel-bio-page .bio-contact-card .form-submit:active {
+  transform: translateY(0);
+}
+
+/* Mensagens de Sucesso / Erro do Formulário */
+.carmel-bio-page .bio-contact-card .form-success-state {
+  text-align: center;
+  padding: 20px 0;
+  color: #FFFFFF;
+}
+
+.carmel-bio-page .bio-contact-card .form-success-title {
+  font-family: var(--font-raleway), sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 10px;
+  margin-bottom: 8px;
+}
+
+.carmel-bio-page .bio-contact-card .form-success-text {
+  font-size: 16px;
+  line-height: 1.4;
+  opacity: 0.9;
+}
+
+.carmel-bio-page .bio-contact-card .form-success-icon svg {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+}
+
+/* --- 4. FOOTER --- */
+.carmel-bio-page .bio-footer {
+  background-color: var(--carmel-footer-bg);
+  padding: 24px 20px;
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.carmel-bio-page .bio-footer-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 20px;
+}
+
+.carmel-bio-page .bio-footer .copyright {
+  font-family: var(--font-raleway), sans-serif;
+  font-size: 12px;
+  color: #CCCCCC;
+  margin: 0;
+  text-align: left;
+}
+
+.carmel-bio-page .bio-footer .footer-logo {
+  width: 80px;
+  max-width: 80px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.carmel-bio-page .bio-footer .footer-logo img {
+  width: 100%;
+  height: auto;
+}
+
+.carmel-bio-page .bio-footer .credits {
+  font-family: var(--font-raleway), sans-serif;
+  font-size: 12px;
+  color: #CCCCCC;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.carmel-bio-page .bio-footer .credits a {
+  display: inline-block;
+  width: 70px;
+  vertical-align: middle;
+}
+
+.carmel-bio-page .bio-footer .credits img {
+  width: 100%;
+  height: auto;
+}
+
+/* --- 5. RESPONSIVIDADE (MOBILE-FIRST ADAPTATIONS) --- */
+@media (max-width: 767px) {
+  .carmel-bio-page .bio-header {
+    height: 30vh;
+    min-height: 180px;
+  }
+
+  .carmel-bio-page .bio-logo-wrapper {
+    width: 150px;
+    max-width: 150px;
+  }
+
+  .carmel-bio-page .bio-main {
+    padding: 30px 16px 60px 16px;
+  }
+
+  .carmel-bio-page .bio-title {
+    font-size: 26px;
+    margin-bottom: 30px;
+  }
+
+  .carmel-bio-page .bio-links {
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+
+  .carmel-bio-page .bio-contact-card {
+    padding: 30px 16px;
+    border-radius: 30px;
+  }
+
+  .carmel-bio-page .contact-title {
+    font-size: 18px;
+  }
+
+  .carmel-bio-page .bio-footer-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .carmel-bio-page .bio-footer .copyright {
+    text-align: center;
+  }
+
+  .carmel-bio-page .bio-footer .credits {
+    justify-content: center;
+  }
+}

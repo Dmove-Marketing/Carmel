@@ -1,0 +1,133 @@
+---
+// Gerado e refatorado a partir de: bio.html
+// Carmel Eventos - Página de Links (Bio)
+import Base from '../layouts/Base.astro';
+import config from '../../config.json';
+import Img from '../components/ui/Img.astro';
+import LeadForm from '../components/forms/LeadForm.astro';
+import '../styles/bio.css';
+---
+
+<Base
+  title="BIO | Carmel Eventos"
+  description="Entre em contato com o Carmel Campo ou siga nossas redes sociais."
+  canonical="https://carmeleventos.com.br/bio/"
+  ogImage="/images/og-bio.jpg"
+>
+  <Fragment slot="head">
+    <!-- Flatpickr (Calendário) CDN -->
+    <link rel="stylesheet" href="https://npmcdn.com/flatpickr/dist/flatpickr.min.css">
+    <script src="https://npmcdn.com/flatpickr/dist/flatpickr.min.js" defer></script>
+  </Fragment>
+
+  <div class="carmel-bio-page">
+    
+    <!-- 1. HEADER (HERO BANNER COM LOGO) -->
+    <header class="bio-header">
+      <div class="bio-logo-wrapper">
+        <Img src="carmel-logo-1.avif" alt="Carmel Eventos Logo" priority />
+      </div>
+    </header>
+
+    <!-- 2. CONTEÚDO PRINCIPAL (LINKS E FORMULÁRIO) -->
+    <main class="bio-main pattern-dark-bg">
+      <div class="bio-container">
+        
+        <h1 class="bio-title">Carmel Campo: o cenário perfeito para dizer ‘sim’</h1>
+
+        <!-- Links rápidos -->
+        <div class="bio-links">
+          <a class="btn bio-link-btn" href="https://maps.app.goo.gl/43QK4jnm4wskupYc9" target="_blank" rel="noopener noreferrer">
+            <svg class="btn-icon" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg">
+              <path fill="currentColor" d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"></path>
+            </svg>
+            Nosso Endereço
+          </a>
+
+          <a class="btn bio-link-btn" href="https://www.instagram.com/carmel_campo/" target="_blank" rel="noopener noreferrer">
+            <svg class="btn-icon" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+              <path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path>
+            </svg>
+            Instagram
+          </a>
+        </div>
+
+        <!-- Formulário de Contato -->
+        <section class="bio-contact-section" id="contato">
+          <div class="bio-contact-card">
+            <h2 class="contact-title">Solicite um contato</h2>
+            <div class="contact-divider"></div>
+            
+            <LeadForm
+              formId="lead-form"
+              project={config.project_slug}
+              submitUrl={config.forms['lead-form'].webhooks[0]}
+              redirectUrl={config.forms['lead-form'].redirect_on_success}
+              submitText="ENVIAR SOLICITAÇÃO"
+              honeypot
+              fields={[
+                { name: 'form_fields[nome]', type: 'text', label: 'Nome', placeholder: '', required: true },
+                {
+                  type: 'row',
+                  fields: [
+                    { name: 'form_fields[telefone]', type: 'text', label: 'WhatsApp', placeholder: '', required: true },
+                    { name: 'form_fields[email]', type: 'email', label: 'E-mail', placeholder: '', required: true }
+                  ]
+                },
+                { name: 'form_fields[tipo]', type: 'select', label: 'Tipo de evento', required: true, options: [
+                  { value: '', label: '', disabled: true, selected: true },
+                  { value: 'Aniversário', label: 'Aniversário' },
+                  { value: 'Debutante', label: 'Debutante' },
+                  { value: 'Bodas', label: 'Bodas' },
+                  { value: 'Casamento', label: 'Casamento' },
+                  { value: 'Confraternização corporativa', label: 'Confraternização corporativa' },
+                  { value: 'Confraternização social', label: 'Confraternização social' },
+                  { value: 'Corporativo', label: 'Corporativo' },
+                  { value: 'Feiras e Exposições', label: 'Feiras e Exposições' },
+                  { value: 'Formatura', label: 'Formatura' },
+                  { value: 'Happy Hour', label: 'Happy Hour' },
+                  { value: 'Masterclass e Palestras', label: 'Masterclass e Palestras' },
+                  { value: 'Mentorias e Treinamentos', label: 'Mentorias e Treinamentos' },
+                  { value: 'Mini-Wedding', label: 'Mini-Wedding' },
+                  { value: 'Offsite corporativo', label: 'Offsite corporativo' },
+                  { value: 'Reuniões de Networking', label: 'Reuniões de Networking' },
+                  { value: 'Shows e Festivais', label: 'Shows e Festivais' },
+                  { value: 'Workshops, Conferências e Seminários', label: 'Workshops, Conferências e Seminários' },
+                  { value: 'Outros', label: 'Outros' }
+                ] },
+                { name: 'form_fields[data]', type: 'text', label: 'Data do Evento', placeholder: '', required: true },
+                { name: 'form_fields[convidados]', type: 'number', label: 'N° de Pessoas', placeholder: '', required: true },
+                { name: 'form_fields[mensagem]', type: 'textarea', label: 'Detalhes adicionais: (Não obrigatório)', placeholder: '', required: false, rows: 3 },
+                { name: 'form_fields[fonte]', type: 'hidden', value: 'Landing page/bio' }
+              ]}
+            />
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- 3. FOOTER -->
+    <footer class="bio-footer">
+      <div class="bio-footer-container">
+        <p class="copyright">© 2025 – Carmel Campo – Todos os direitos reservados.</p>
+        
+        <div class="footer-logo">
+          <Img src="carmel-logo-1.avif" alt="Carmel Campo" />
+        </div>
+        
+        <div class="credits">
+          <span>Desenvolvido por:</span>
+          <a href="http://dmove.com.br/" target="_blank" rel="noopener noreferrer">
+            <Img src="Versao-Principal-Negativo-scaled-e1750426923582.avif" alt="DMove Logo" />
+          </a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+</Base>
+
+<script>
+  import '../scripts/bio.js';
+</script>
